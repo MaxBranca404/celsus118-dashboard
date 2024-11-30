@@ -4,10 +4,27 @@ import math
 from pathlib import Path
 
 # Set the title and favicon that appear in the Browser's tab bar.
-st.set_page_config(
-    page_title='GDP dashboard',
-    page_icon=':earth_americas:', # This is an emoji shortcode. Could be a URL too.
-)
+st.set_page_config(page_title="Interfaccia Supporto Operatori 118", layout="wide", page_icon="resources/logo.png")
+
+# Header
+st.markdown("""
+        <div style='display: flex; align-items: center;'>
+            <img src='/workspaces/celsus118-dashboard/resources/logo.png' width='50' style='margin-right: 15px;'>
+            <h1 style='text-align: center; margin: 0;'>Interfaccia Supporto Operatori 118</h1>
+        </div>
+    """, unsafe_allow_html=True)
+
+# Layout con sidebar e due colonne
+with st.sidebar:
+    st.image("resources/logo.png", width=100)
+    st.markdown("### Menu")
+    st.button("Profilo")
+    st.button("Dashboard")
+    st.button("Statistiche")
+    st.button("Ricerca")
+    st.button("Cronologia")
+    st.button("Logout")
+
 
 # -----------------------------------------------------------------------------
 # Declare some useful functions.
@@ -64,7 +81,7 @@ gdp_df = get_gdp_data()
 
 # Set the title that appears at the top of the page.
 '''
-# :earth_americas: GDP dashboard
+# ........
 
 Browse GDP data from the [World Bank Open Data](https://data.worldbank.org/) website. As you'll
 notice, the data only goes to 2022 right now, and datapoints for certain years are often missing.
